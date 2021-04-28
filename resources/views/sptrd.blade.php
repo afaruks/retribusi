@@ -127,6 +127,7 @@
                           <option value="Retribusi Pemberian Izin Trayek kepada Orang Pribadi">Retribusi Pemberian Izin Trayek kepada Orang Pribadi</option>
                           <option value="Retribusi Pemberian Izin Usaha Perikanan kepada Orang Pribadi">Retribusi Pemberian Izin Usaha Perikanan kepada Orang Pribadi</option>
                         </select>
+                        
                     </div>
                     <div class="form-group">
                       
@@ -173,12 +174,14 @@
                         <div class="form-group">
                           <label>NPWPD</label>
                           <input type="text" name="NPWPD" id="npwpd" class="form-control validate">
+                          
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Nama WP</label>
-                          <input type="text" name="NamaWP" id="namawp" class="form-control validate" readonly>
+                          <input type="text" name="NamaWP" id="namawp"  class="form-control validate" readonly>
+                         
                         </div>
                       </div>
                     </div>
@@ -186,8 +189,9 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Tanggal Terbit</label>
-                          <input type="text" name="TanggalTerbit" id="TanggalTerbit"  class="form-control" data-date-format="yyyy/dd/mm" placeholder="Tahun-Bulan-Hari">
-                        
+                         
+                          <input type="text" name="TanggalTerbit" id="TanggalTerbit" class="form-control"  placeholder="Tahun-Bulan-Hari">
+                          
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -212,6 +216,7 @@
                             <option value="Tahun">Tahun</option>
                             <option value="Hari">Hari</option>
                           </select>
+                          
                         </div>
                       </div>
                     </div>
@@ -222,10 +227,11 @@
                     </div>
                     <div class="form-group">
                       <label>Keterangan</label>
-                      <textarea class="form-control" name="KeteranganPajak" id="KeteranganPajak" rows="3" placeholder="Keterangan"></textarea>
+                      <textarea class="form-control" name="KeteranganPajak" value="{{old ('KeteranganPajak')}}" sid="KeteranganPajak" rows="3" placeholder=" Isi Keterangan"></textarea>
+                      
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                       <button type="submit" class="btn btn-primary submitBtn"  name="action" onclick="submitContactForm()">Tambah</button>
                   </div>
                 </form>
@@ -242,7 +248,7 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
+
 
 <script>
   $(function () {
@@ -263,12 +269,14 @@
         
     });
     $(document).ready(function(){
-          $('.datepicker').datepicker({
-              format: 'yyyy-mm-dd'
+          $('#TanggalTerbit').datepicker({
+            autoclose: true,
+            format:'yyyy-mm-dd'
           });     
       });
 
   });
+ 
   
   $('#npwpd').keyup(function() {
 			var querynpwpd = $(this).val();
