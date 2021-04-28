@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 
 class RetribusiController extends Controller
@@ -76,7 +77,7 @@ class RetribusiController extends Controller
         $Aktif="1";
         $Lunas="0";
         $RuasJalan=null;
-        $ObyekPajak=null;
+        // $ObyekPajak=null;
         $Luas=null;
         $Lebar=null;
         $Lama=null;
@@ -84,35 +85,31 @@ class RetribusiController extends Controller
         $BatasWaktu=null;
         $Sisi=null;
         $NoSPTLama ="";
-        $TotalNilai_SebelumPajak="20000";
+        $TotalNilai_SebelumPajak="0";
         $Verifikator="";
         $TanggalVerifikasi=null;
 
         if ($request->input('NamaPajak') == "Retribusi Izin Mendirikan Bangunan") {
-            $ObyekPajak = "93";
+            $JumlahPajak= $request->input('JumlahPajak2');
+            $ObyekPajak="93";
         } elseif ($request->input('NamaPajak') == "Retribusi Pemberian Izin Trayek kepada Orang Pribadi") {
-            $ObyekPajak = "94";
+            $JumlahPajak= $request->input('JumlahPajak');
+            $ObyekPajak="94";
         } elseif ($request->input('NamaPajak') == "Retribusi Pemberian Izin Usaha Perikanan kepada Orang Pribadi") {
-            $ObyekPajak = "95";
+            $JumlahPajak= $request->input('JumlahPajak1');
+            $ObyekPajak="95";
         }
         
-        // $this->validate($request, [
-        //     'NoID' => 'required',
-        //     'ID' => 'required',
-        //     'JenisPajak' => 'required',
-        //     'NamaPajak' => 'required',
-        //     'TanggalTerbit' => 'required',
-        //     'Bulan' => 'required',
-        //     'Tahun' => 'required',
-        //     'NPWPD' => 'required',
-        //     'NamaWP' => 'required',
-        //     'DataEntri' => 'required',
-        //     'TanggalEntri' => 'required',
-        //     'KeteranganPajak' => 'required',
-        //     'TotalNilai_SebelumPajak' => 'required',
-        //     'JumlahPajak' => 'required',
-        //     'Verifikator' => 'required',
-        // ]);
+        $this->validate($request, [
+            
+            'JenisPajak' => 'required',
+            'NamaPajak' => 'required',
+            'TanggalTerbit' => 'required',
+            'KeteranganPajak' => 'required',
+            'JumlahPajak' => 'required',
+            'JumlahPajak1' => 'required',
+            'JumlahPajak2' => 'required',
+        ]);
        $data = DB::table('sptpd')->insert([
             'NoID' => $insertId,
             'ID' => $ID,
@@ -138,22 +135,18 @@ class RetribusiController extends Controller
             'BatasWaktu' => $BatasWaktu,
             'Sisi' => $Sisi,
             'TotalNilai_SebelumPajak' => $TotalNilai_SebelumPajak,
-            'JumlahPajak' => $request->input('JumlahPajak'),
+            'JumlahPajak' => $JumlahPajak,
             'Verifikator' => $Verifikator,
             'TanggalVerifikasi' => $TanggalVerifikasi,
             'NoSPTLama' => $NoSPTLama,
             
         ]);
         // echo $data;
-
+        
         return Redirect::back()->with('success', " Berhasil Tersimpan");
+        
 }
-        public function json_npwpd()
-        {
-            $ambilnpwpds = DB::table('npwpd')
-                ->where('Status','=','Terverifikasi');
-            return Datatables::of($ambilnpwpds)->make(true);
-        }
+        
 
         public function npwpd(Request $request)
     {
@@ -195,10 +188,11 @@ class RetribusiController extends Controller
             ->where('NoID', '=', $NoID)
             // ->where('NoID' )
             ->update(['Verifikasi' => 1,
-                'TanggalVerifikasi'=> date('Y-m-d')]);
+                'TanggalVerifikasi'=> date('Y-m-d'),
+                'Verifikator'=> Auth::user()->name]);
           
-        dd ($tes);
-        // return Redirect::back()->with('success');
+        // dd ($tes);
+        return Redirect::back()->with('success');
     }
 
     public function Cskrd(request $request)
@@ -348,5 +342,11 @@ class RetribusiController extends Controller
 
         // dd ($sptrd_cetak[0]->NoID);
         return view('report.sptrd_Cetak', compact('sptrd_cetak'));
+    }
+    public function rincian_pajak (){
+        $rincian = DB::select('select * from tarif_dasar_pajak');
+
+        
+        return view('sptrd', compact('rincian'));
     }
 }

@@ -117,7 +117,6 @@
                           <option value="4.1.2.02">Retribusi Rumah Potong Hewan</option> --}}
                           <option value="4.1.2.03">Retribusi Perizinan tertentu</option>
                         </select>
-                        
                     </div>
                     <div class="form-group">
                         <label for="inputName">Obyek Pajak</label>
@@ -129,7 +128,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                      
+                      {{-- <label for="inputName">Obyek Pajak Ijin Trayek</label> --}}
                       <select name="JumlahPajak" id="JumlahPajak" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Pilih Obyek Pajak Ijin Trayek</option>
                         <option value="30000">Bus Kapasitas Penumpang < 8 </option>
@@ -141,8 +140,8 @@
                         <option value="24000">Izin Trayek Izidentil Kapasitas > 25</option>
                       </select>
                   </div>
-                  <div class="form-group">
-                      <select name="JumlahPajak1" id="JumlahPajak1" class="form-control select2" style="width: 100%;">
+                  {{-- <div class="form-group">
+                      <select name="JumlahPajak" id="JumlahPajak1" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Pilih Obyek Pajak Izin Perikanan</option>
                         <option value="25000">Perikanan Tangkap-Perahu Motor Tempel-Pancing</option>
                         <option value="25000">Perikanan Tangkap-Perahu Motor Tempel-Gillnet/Trammel Net</option>
@@ -167,12 +166,18 @@
                         <option value="100000">Perikanan Budidaya-Budidaya Air Laut-Keramba Jaring ( 450 s/d 1000 m3)</option>
                         <option value="200000">Perikanan Budidaya-Budidaya Air Laut-Keramba Jaring ( 1.001 m3 keatas)</option>
                       </select>
-                    </div>
+                  </div>
+                  <div class="form-group">
+                    <select name="JumlahPajak" id="JumlahPajak2" class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Pilih Obyek Pajak Ijin Mendirikan Bangunan</option>
+                      <option value="30000">Tes IMB</option>
+                    </select>
+                </div> --}}
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>NPWPD</label>
-                          <input type="text" name="NPWPD" id="npwpd" class="form-control validate">
+                          <input type="text" name="NPWPD" id="npwpd" class="form-control validate" readonly>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -186,8 +191,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Tanggal Terbit</label>
-                          <input type="text" name="TanggalTerbit" id="TanggalTerbit"  class="form-control" data-date-format="yyyy/dd/mm" placeholder="Tahun-Bulan-Hari">
-                        
+                          <input type="text" name="TanggalTerbit" id="TanggalTerbit"  class="form-control datepicker">
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -201,7 +205,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label >Nilai Pajak</label>
-                          <input type="text"   name="JumlahPajak2" id="JumlahPajak2" class="form-control" placeholder="Nilai Pajak" disabled>
+                          <input type="text" Value="0" id="JumlahPajak" name="JumlahPajak1" id="JumlahPajak" class="form-control" placeholder="Nilai Pajak" disabled>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -226,7 +230,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary submitBtn"  name="action" onclick="submitContactForm()">Tambah</button>
+                      <button type="submit" class="btn btn-primary submitBtn" name="action" onclick="submitContactForm()">Tambah</button>
                   </div>
                 </form>
             </div>
@@ -238,11 +242,11 @@
 </div>
 </div>
 <!-- Datatable -->
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
+<script type="text/javascript" src="{{asset('public/template/plugins/bootstrap-datepicker.min.js')}}"></script>
 
 <script>
   $(function () {
@@ -269,7 +273,6 @@
       });
 
   });
-  
   $('#npwpd').keyup(function() {
 			var querynpwpd = $(this).val();
 			if (querynpwpd != '') {
@@ -295,23 +298,20 @@
 			if ($("#NamaPajak option:selected").val() == 'Retribusi Izin Mendirikan Bangunan') {
 				$('#JumlahPajak').prop('hidden', 'true');
         $('#JumlahPajak1').prop('hidden', 'true');
-        $('#npwpd').prop('disabled', false);
-        $('#JumlahPajak2').prop('disabled', false);
-        
+        $('#JumlahPajak2').prop('hidden', false);
 			} else if ($("#NamaPajak option:selected").val() == 'Retribusi Pemberian Izin Trayek kepada Orang Pribadi'){
 				$('#JumlahPajak').prop('hidden', false);
         $('#JumlahPajak1').prop('hidden', 'true');
-        $('#npwpd').prop('disabled', 'true');
-        $('#JumlahPajak2').prop('disabled', 'true');
+        $('#JumlahPajak2').prop('hidden', 'true');
 			} else if ($("#NamaPajak option:selected").val() == 'Retribusi Pemberian Izin Usaha Perikanan kepada Orang Pribadi'){
 				$('#JumlahPajak').prop('hidden', 'true');
         $('#JumlahPajak1').prop('hidden', false);
-        $('#npwpd').prop('disabled', 'true');
-        $('#JumlahPajak2').prop('disabled', 'true');
+        $('#JumlahPajak2').prop('hidden', 'true');
       }
 		});
 });
-      
+          
+
 </script>
 @endsection
     
