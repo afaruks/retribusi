@@ -30,10 +30,10 @@
   <!--Eksport-->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
-  
+
   <!-- bootstrap datepicker -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -42,7 +42,7 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-    
+
       <li class="nav-item d-none d-sm-inline-block">
         <label>e-Pajak dan Retribusi Daerah Kabupaten Situbondo </label>
     </ul>
@@ -114,7 +114,7 @@
                 <li class="nav-item">
                   <a href="{{url('/sptrd_view')}}" class="nav-link">
                     <i class="fas fa-puzzle-piece nav-icon"></i>
-                    <p>Data Sptrd</p>
+                    <p>Data SPTRD</p>
                   </a>
                 </li>
               </ul>
@@ -131,7 +131,7 @@
                 <li class="nav-item">
                   <a href="{{url('/skrd_view')}}" class="nav-link">
                     <i class="fas fa-puzzle-piece nav-icon"></i>
-                    <p>Data Skrd</p>
+                    <p>Data SKRD</p>
                   </a>
                 </li>
               </ul>
@@ -171,7 +171,7 @@
                   </a>
                 </li>
               </ul>
-              
+
             </li>
           </li>
         </ul>
@@ -182,7 +182,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  
+
     @yield('breadcrumb')
     @yield('content')
   <!-- /.content-wrapper -->
