@@ -16,7 +16,7 @@
             <li class="breadcrumb-item"><a href="{{url('/')}}">Kembali</a></li>
             <li class="breadcrumb-item active">SPTRD</li>
           </ol>
-        </div>  
+        </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -30,7 +30,7 @@
             <div class="card-header">
               <h3 class="card-title">Surat Pemberitahuan Retribusi Daerah</h3>
             </div>
-            
+
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover" >
@@ -50,7 +50,7 @@
                   @foreach ($sptrd as $item)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    
+
                     <td>{{str_pad($item->NoID,5,'0',STR_PAD_LEFT)}}</td>
                     <td>{{$item->TanggalTerbit}}</td>
                     <td>{{$item->NamaPajak}}</td>
@@ -61,10 +61,10 @@
                       <div class="badge badge-danger">Belum Verifikasi</div>
                       @endif</td>
                     <td>
-                      
+
                       <a onclick="return confirm('Anda Yakin Verifikasi SPTRD ini...?')" href="{{URL::to('verifikasi/'.$item->NoID)}}">
                       <button type="button" class="btn btn-warning btn-sm" name=""> <i class="fa fa-check"></i></button></a>
-                      <a href="{{URL::to('sptrd_cetak/'.$item->NoID)}}"><button type="button" class="btn btn-white btn-sm" name=""> <i class="fa fa-print"></i></button></a>
+                      <a href="{{URL::to('sptrd_cetak/'.$item->NoID)}}" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-white btn-sm" name=""> <i class="fa fa-print"></i></button></a>
                     </td>
                   </tr>
                   @endforeach
@@ -117,7 +117,7 @@
                           <option value="4.1.2.02">Retribusi Rumah Potong Hewan</option> --}}
                           <option value="4.1.2.03">Retribusi Perizinan tertentu</option>
                         </select>
-                        
+
                     </div>
                     <div class="form-group">
                         <label for="inputName">Obyek Pajak</label>
@@ -127,10 +127,10 @@
                           <option value="Retribusi Pemberian Izin Trayek kepada Orang Pribadi">Retribusi Pemberian Izin Trayek kepada Orang Pribadi</option>
                           <option value="Retribusi Pemberian Izin Usaha Perikanan kepada Orang Pribadi">Retribusi Pemberian Izin Usaha Perikanan kepada Orang Pribadi</option>
                         </select>
-                        
+
                     </div>
                     <div class="form-group">
-                      
+
                       <select name="JumlahPajak" id="JumlahPajak" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Pilih Obyek Pajak Ijin Trayek</option>
                         <option value="30000">Bus Kapasitas Penumpang < 8 </option>
@@ -174,14 +174,14 @@
                         <div class="form-group">
                           <label>NPWPD</label>
                           <input type="text" name="NPWPD" id="npwpd" class="form-control validate">
-                          
+
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Nama WP</label>
                           <input type="text" name="NamaWP" id="namawp"  class="form-control validate" readonly>
-                         
+
                         </div>
                       </div>
                     </div>
@@ -189,9 +189,9 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Tanggal Terbit</label>
-                         
+
                           <input type="text" name="TanggalTerbit" id="TanggalTerbit" class="form-control"  placeholder="Tahun-Bulan-Hari">
-                          
+
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -216,7 +216,7 @@
                             <option value="Tahun">Tahun</option>
                             <option value="Hari">Hari</option>
                           </select>
-                          
+
                         </div>
                       </div>
                     </div>
@@ -228,7 +228,7 @@
                     <div class="form-group">
                       <label>Keterangan</label>
                       <textarea class="form-control" name="KeteranganPajak" value="{{old ('KeteranganPajak')}}" sid="KeteranganPajak" rows="3" placeholder=" Isi Keterangan"></textarea>
-                      
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
@@ -236,9 +236,9 @@
                   </div>
                 </form>
             </div>
-            
+
             <!-- Modal Footer -->
-            
+
         </div>
     </div>
 </div>
@@ -261,23 +261,23 @@
       "responsive": true,
       // "dom": '"<\'row\'<\'col-sm-12 col-md-6\'l><\'col-sm-12 col-md-6\'f>>" +\n"<\'row\'<\'col-sm-12\'tr>>" +\n"<\'row\'<\'col-sm-12 col-md-5\'i><\'col-sm-12 col-md-7\'p>>" +\n"<\'row\'<\'col-sm-12 col-md-6\'B>>",',
                 // "dom": 'Blfrtip',
-                
+
                 "lengthMenu": [
                     [10, 25, 50, -1],
                     [10, 25, 50, "All"]
                 ],
-        
+
     });
     $(document).ready(function(){
           $('#TanggalTerbit').datepicker({
             autoclose: true,
             format:'yyyy-mm-dd'
-          });     
+          });
       });
 
   });
- 
-  
+
+
   $('#npwpd').keyup(function() {
 			var querynpwpd = $(this).val();
 			if (querynpwpd != '') {
@@ -292,7 +292,7 @@
 					success: function(data) {
 						var _data = data.split(";", 3);
 						$('#namawp').val(_data[0]);
-						
+
 					}
 				});
 			}
@@ -305,7 +305,7 @@
         $('#JumlahPajak1').prop('hidden', 'true');
         $('#npwpd').prop('disabled', false);
         $('#JumlahPajak2').prop('disabled', false);
-        
+
 			} else if ($("#NamaPajak option:selected").val() == 'Retribusi Pemberian Izin Trayek kepada Orang Pribadi'){
 				$('#JumlahPajak').prop('hidden', false);
         $('#JumlahPajak1').prop('hidden', 'true');
@@ -319,7 +319,7 @@
       }
 		});
 });
-      
+
 </script>
 @endsection
-    
+
