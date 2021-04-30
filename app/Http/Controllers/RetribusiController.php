@@ -21,7 +21,7 @@ class RetribusiController extends Controller
         a.JumlahPajak,
         a.Verifikasi
     FROM
-        sptpd a 
+        sptpd a
     WHERE
         a.JenisPajak IN (
             '4.1.2.01',
@@ -45,7 +45,7 @@ class RetribusiController extends Controller
         b.JumlahPajak
     FROM
         skp a
-        LEFT JOIN sptpd b ON a.Nomor_SPTPD = b.NoID 
+        LEFT JOIN sptpd b ON a.Nomor_SPTPD = b.NoID
     WHERE
         b.JenisPajak IN ( '4.1.2.01', '4.1.2.02', '4.1.2.03' )";
         $skrd = DB::connection('mysql')
@@ -99,9 +99,9 @@ class RetribusiController extends Controller
             $JumlahPajak= $request->input('JumlahPajak1');
             $ObyekPajak="95";
         }
-        
+
         $this->validate($request, [
-            
+
             'JenisPajak' => 'required',
             'NamaPajak' => 'required',
             'TanggalTerbit' => 'required',
@@ -139,14 +139,14 @@ class RetribusiController extends Controller
             'Verifikator' => $Verifikator,
             'TanggalVerifikasi' => $TanggalVerifikasi,
             'NoSPTLama' => $NoSPTLama,
-            
+
         ]);
         // echo $data;
-        
+
         return Redirect::back()->with('success', " Berhasil Tersimpan");
-        
+
 }
-        
+
 
         public function npwpd(Request $request)
     {
@@ -174,7 +174,7 @@ class RetribusiController extends Controller
             $datasptrd = DB::table('sptpd')
                 ->where('noid', 'like', "%$querysptrd%")
                 ->first();
-            
+
             $namawp = $datasptrd->NamaWP;
             $TanggalTerbit = $datasptrd->TanggalTerbit;
             $JumlahPajak = $datasptrd->JumlahPajak;
@@ -190,7 +190,7 @@ class RetribusiController extends Controller
             ->update(['Verifikasi' => 1,
                 'TanggalVerifikasi'=> date('Y-m-d'),
                 'Verifikator'=> Auth::user()->name]);
-          
+
         // dd ($tes);
         return Redirect::back()->with('success');
     }
@@ -230,7 +230,7 @@ class RetribusiController extends Controller
         $keteranganDataDouble=null;
         $VA=null;
         $QRIS=null;
-        
+
         // $this->validate($request, [
         //     'NoID' => 'required',
         //     'ID' => 'required',
@@ -266,7 +266,7 @@ class RetribusiController extends Controller
             'NominalTransfer' => $NominalTransfer,
             'NoBayarLama' => $NoBayarLama,
             'TglBayar' => $TglBayar,
-            'Penyetor' => $penyetor,    
+            'Penyetor' => $penyetor,
             'Denda' => $Denda,
             'masa1' => $request->input('masa1'),
             'masa2' => $request->input('masa2'),
@@ -275,13 +275,13 @@ class RetribusiController extends Controller
             'keteranganDataDouble' => $keteranganDataDouble,
             'VA' => $VA,
             'QRIS' => $QRIS,
-            
+
         ]);
         // echo $data;
 
         return Redirect::back()->with('success', " Berhasil Tersimpan");
 }
-    
+
     public function cetak (){
         return view ('report.skr_cetak');
     }
@@ -302,23 +302,23 @@ class RetribusiController extends Controller
         a.KeteranganPajak,
         c.AlamatWP,
         a.JumlahPajak
-        
+
     FROM
         sptpd a
         LEFT JOIN skp b ON a.NoID = b.Nomor_SPTPD
         LEFT JOIN npwpd c ON a.NPWPD = c.NPWPD
         LEFT JOIN tarif_dasar_pajak d ON a.obyekpajak = d.noid
-        where 
+        where
         b.Nomor_SKPRD = $Nomor_SKPRD";
         $skr_cetak = DB::connection('mysql')
             ->select(DB::raw($query));
 
         // dd ($skr_cetak[0]->masa1);
-        return view('report.skr_Cetak', compact('skr_cetak'));
+        return view('report.skr_cetak', compact('skr_cetak'));
     }
     public function sptrd_cetak($NoID)
     {
-        
+
         $query = "SELECT
         a.NPWPD,
         a.NamaWP,
@@ -330,12 +330,12 @@ class RetribusiController extends Controller
         a.KeteranganPajak,
         c.AlamatWP,
         a.JumlahPajak
-        
+
     FROM
         sptpd a
         LEFT JOIN npwpd c ON a.NPWPD = c.NPWPD
         LEFT JOIN tarif_dasar_pajak d ON a.obyekpajak = d.noid
-        where 
+        where
         a.NoID = $NoID";
         $sptrd_cetak = DB::connection('mysql')
             ->select(DB::raw($query));
@@ -346,7 +346,7 @@ class RetribusiController extends Controller
     public function rincian_pajak (){
         $rincian = DB::select('select * from tarif_dasar_pajak');
 
-        
+
         return view('sptrd', compact('rincian'));
     }
 }

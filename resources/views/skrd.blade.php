@@ -16,7 +16,7 @@
             <li class="breadcrumb-item"><a href="{{url('/')}}">Kembali</a></li>
             <li class="breadcrumb-item active">SKRD</li>
           </ol>
-        </div>  
+        </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -30,7 +30,7 @@
             <div class="card-header">
               <h3 class="card-title">Surat Ketetapan Retribusi Daerah</h3>
             </div>
-            
+
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover" >
@@ -61,7 +61,7 @@
                     <td>{{$ker->KeteranganPajak}}</td>
                     <td>{{$ker->JumlahPajak}}</td>
                     <td>
-                      <a href="{{URL::to('skr_cetak/'.$ker->Nomor_SKPRD)}}"><button type="button" class="btn btn-primary" name=""> <i class="fa fa-print"></i></button></a>
+                      <a href="{{URL::to('skr_cetak/'.$ker->Nomor_SKPRD)}}" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-primary" name=""> <i class="fa fa-print"></i></button></a>
                     </td>
                   </tr>
                   @endforeach
@@ -176,7 +176,7 @@
       "responsive": true,
       // "dom": '"<\'row\'<\'col-sm-12 col-md-6\'l><\'col-sm-12 col-md-6\'f>>" +\n"<\'row\'<\'col-sm-12\'tr>>" +\n"<\'row\'<\'col-sm-12 col-md-5\'i><\'col-sm-12 col-md-7\'p>>" +\n"<\'row\'<\'col-sm-12 col-md-6\'B>>",',
                 // "dom": 'Blfrtip',
-                
+
                 "lengthMenu": [
                     [10, 25, 50, -1],
                     [10, 25, 50, "All"]
@@ -188,6 +188,33 @@
         //             {extend: 'excel', title: 'Data_SPTPRD'},
         //             {extend:'print',title: 'Data_SPTPRD'},
         // ]
+
+        /*"columns" : [
+            {
+                "data": 'No'
+            },
+            {
+                "data": 'No. SKR'
+            },
+            {
+                "data": 'Bulan'
+            },
+            {
+                "data": 'Tahun'
+            },
+            {
+                "data": 'No. SPTRD'
+            },
+            {
+                "data": 'Uraian'
+            },
+            {
+                "data": 'Jumlah'
+            },
+            {
+                "data": 'Aksi'
+            },
+        ]*/
     });
   });
 
@@ -208,7 +235,7 @@
 						$('#TanggalTerbit').val(_data[1]);
             $('#JumlahPajak').val(_data[2]);
             $('#KeteranganPajak').val(_data[3]);
-						
+
 					}
 				});
 			}
@@ -216,4 +243,4 @@
 
 </script>
 @endsection
-    
+

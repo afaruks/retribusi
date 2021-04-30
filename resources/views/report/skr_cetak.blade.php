@@ -20,7 +20,7 @@ document.body.innerHTML = originalContents;
 
 <style>
 
-hr { 
+hr {
     display: block;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -28,11 +28,11 @@ hr {
     margin-right: auto;
     border-style: inset;
     border-width: 1px;
-} 
+}
 
 
 div.absolute {
-    
+
     top: 5px;
     right: 10000px;
     position: absolute;
@@ -76,21 +76,22 @@ div.absolute {
 <body>
 
 <div class="parent">
-    <img class="image1" src="{{asset('public/template/assets/logo.jpg')}}"" width="12%" height="80" align="left">
-<h4 align="center"><b>PEMERINTAH KABUPATEN SITUBONDO</b></h4>
-<h5 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h5>
-<h5 align="center"><b>Jl. Pb Sudirman No.1 Situbondo</b></h5>
-<h5 align="center"><b>Telp.(0338)671916</b></h5>
+<!--<img class="image1" src="{{asset('public/template/assets/logo.jpg')}}"" width="12%" height="80" align="left">-->
+    <img class="image1" src="{{asset('public/template/assets/Logo Kabupaten Situbondo alpha.png')}}"" width="23%" height="53%" align="left">
+<h5 align="center"><b>PEMERINTAH KABUPATEN SITUBONDO</b></h4>
+<h6 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h5>
+<h6 align="center"><b>Jl. Pb Sudirman No.1 Situbondo</b></h5>
+<h6 align="center"><b>Telp.(0338)671916</b></h5>
 {{-- <img class="image1" src="http://103.76.175.175:81/epajak/assets/logofull.jpg" width="100%" height="121" align="center"> --}}
 {{-- <img class="image2" src="http://103.76.175.175:81/epajak/con_menuutama/gambar/00259"> --}}
 </div>
 <br>
-<h4 align="center"><b>SURAT KETETAPAN RETRIBUSI DAERAH (SKR-DAERAH)</b></h4>
+<h5 align="center"><b>SURAT KETETAPAN RETRIBUSI DAERAH (SKR-DAERAH)</b></h4>
   <table border="0">
     <tbody>
-      
+
     <tr>
-        <td>Nop</td>
+        <td>NOP</td>
         <td>: </td>
         <td>35120999{{$skr_cetak[0]->tahun}}9{{str_pad($skr_cetak[0]->Nomor_SKPRD,5,'0',STR_PAD_LEFT)}}</td>
     </tr>
@@ -103,24 +104,24 @@ div.absolute {
         <td>Bulan/Tahun</td>
         <td>:</td>
         <td>{{$skr_cetak[0]->Bulan}} / {{$skr_cetak[0]->tahun}} </td>
-      </tr>     
+      </tr>
       <tr>
         <td>No. Berkas</td>
         <td>:</td>
         <td>{{str_pad($skr_cetak[0]->Nomor_SKPRD,5,'0',STR_PAD_LEFT)}}/431.302.2.3/{{$skr_cetak[0]->tahun}}</td>
-      </tr> 
+      </tr>
       <tr>
         <td>Wajib Pajak</td>
         <td>:</td>
         <td>({{$skr_cetak[0]->NPWPD}}) {{$skr_cetak[0]->NamaWP}}</td>
-      </tr>   
+      </tr>
       <tr>
         <td>Alamat</td>
         <td>:</td>
         <td>{{$skr_cetak[0]->AlamatWP}}</td>
-      </tr>                              
+      </tr>
     </tbody>
-  
+
   </table>
   <table border="1" width="100%">
     <thead>
@@ -138,16 +139,16 @@ div.absolute {
       </tr>
       <tr>
         <td></td>
-        <td><b>Jumlah ketetapan pokok pajak</b></td>  
+        <td><b>Jumlah ketetapan pokok pajak</b></td>
         <td align="center"><b>{{Number_format($skr_cetak[0]->JumlahPajak)}}</b></td>
-      </tr>      
+      </tr>
       <tr>
         <td></td>
-        <td><b>Jumlah Keseluruhan</b></td>  
+        <td><b>Jumlah Keseluruhan</b></td>
         <td align="center"><b>{{Number_format($skr_cetak[0]->JumlahPajak)}}</b></td>
-      </tr> 
+      </tr>
       <tr>
-        <td colspan="3"><font size="2">Dengan Huruf :  {{Terbilang::make($skr_cetak[0]->JumlahPajak, ' rupiah ')}}</font></td>  
+        <td colspan="3"><font size="2">Dengan Huruf :  {{Terbilang::make($skr_cetak[0]->JumlahPajak, ' rupiah ')}}</font></td>
 
       </tr>
 
@@ -157,7 +158,7 @@ div.absolute {
   <ol>
     <!--<li><font size="2">Harap penyetoran dilakukan pada Bank Jatim Rekening Bendahara Penerimaan BPPKAD No.Rek 0291011896</font></li>-->
     <li><font size="2">Apabila SKP-Daerah ini tidak atau kurang dibayar lewat waktu paling lama 30 hari setelah SKP-Daerah diterima atau (tanggal jatuh tempo) dikenakan sanksi administrasi berupa bunga sebesar 2% per bulan.</font></li>
-  </ol> 
+  </ol>
 <table border="0" width="100%">
     <tbody>
       <tr>
@@ -168,19 +169,19 @@ div.absolute {
           <td align="center"></td>
           <td align="center">Situbondo, <?php $tgl=date('d-m-Y');echo $tgl;?> <!-- Reza --> <!-- -->
           <!--<td align="center">Sitbondo, 11-01-2018</td>--> <!-- Reza -->
-        </tr> 
+        </tr>
         <tr>
           <td></td>
           <td align="center">a.n Kepala Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah</td>
-        </tr> 
+        </tr>
         <tr>
           <td></td>
           <td align="center">Kepala Bidang Pendataan dan Penetapan Pajak</td>
-        </tr>  
+        </tr>
         <tr>
           <td></td>
           <td align="center">dan Retribusi Daerah</td>
-        </tr>                
+        </tr>
         <tr>
           <td><br></td>
           <td></td>
@@ -196,7 +197,7 @@ div.absolute {
         <tr>
           <td align="center"></td>
           <td align="center">NIP. ..............</td>
-        </tr>                                             
+        </tr>
     </tbody>
 </table>
 <hr>
@@ -211,64 +212,64 @@ div.absolute {
           <td><b><font size="2"><u>TANDA TERIMA</u></b></font></td>
           <td align="center"><font size="2">Situbondo, <?php $tgl=date('d-m-Y');echo $tgl;?></font></td> <!-- Reza -->
           <!--<td align="center"><font size="2">Situbondo, 11-01-2018</font></td>--> <!-- Reza -->
-        </tr> 
+        </tr>
         <tr>
           <td>
             <table border="0">
-              <tbody> 
+              <tbody>
                 <tr>
                   <td><font size="2">No. Berkas</font></td>
                   <td><font size="2">:</font></td>
                   <td><font size="2">{{str_pad($skr_cetak[0]->Nomor_SKPRD,5,'0',STR_PAD_LEFT)}}</font></td>
-                </tr>                              
+                </tr>
               </tbody>
             </table>
           </td>
           <td align="center"><font size="2">Yang menerima,</font></td>
-        </tr>   
+        </tr>
         <tr>
           <td>
             <table border="0">
-              <tbody> 
+              <tbody>
                 <tr>
                   <td><font size="2">Nama WP</font></td>
                   <td><font size="2">:</font></td>
                   <td><font size="2"> {{$skr_cetak[0]->NamaWP}}</font></td>
-                </tr>                              
+                </tr>
               </tbody>
             </table>
           </td>
           <td></td>
-        </tr>  
+        </tr>
         <tr>
           <td>
             <table border="0">
-              <tbody> 
+              <tbody>
                 <tr>
                   <td><font size="2">NPWPD</font></td>
                   <td><font size="2">:</font></td>
                   <td><font size="2"> {{$skr_cetak[0]->NPWPD}}</font></td>
-                </tr>                              
+                </tr>
               </tbody>
             </table>
           </td>
           <td></td>
-        </tr>   
+        </tr>
         <tr>
           <td>
             <table border="0">
-              <tbody> 
+              <tbody>
                 <tr>
                   <td><font size="2">Alamat</font></td>
                   <td><font size="2">:</font></td>
                   <td><font size="2"> {{$skr_cetak[0]->AlamatWP}}</font></td>
-                </tr>                              
+                </tr>
               </tbody>
             </table>
           </td>
           <td align="center"><font size="2">(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</font></td>
-        </tr>                          
-                                                    
+        </tr>
+
     </tbody>
 </table>
 
