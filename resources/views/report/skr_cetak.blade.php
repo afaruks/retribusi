@@ -76,11 +76,12 @@ div.absolute {
 <body>
 
 <div class="parent">
-<!--<img class="image1" src="{{asset('public/template/assets/logo.jpg')}}"" width="12%" height="80" align="left">-->
+    {{-- <img class="image1" src="{{asset('public/template/assets/logo.jpg')}}"" width="12%" height="80" align="left">--}}
     <img class="image1" src="{{asset('public/template/assets/Logo Kabupaten Situbondo alpha.png')}}"" width="23%" height="53%" align="left">
 <h5 align="center"><b>PEMERINTAH KABUPATEN SITUBONDO</b></h4>
-<h6 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h5>
-<h6 align="center"><b>Jl. Pb Sudirman No.1 Situbondo</b></h5>
+{{-- <h6 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h5> --}}
+<h6 align="center"><b>{{$header['opd']}}</b></h5>
+<h6 align="center"><b>{{$header['alamat']}}</b></h5>
 <h6 align="center"><b>Telp.(0338)671916</b></h5>
 {{-- <img class="image1" src="http://103.76.175.175:81/epajak/assets/logofull.jpg" width="100%" height="121" align="center"> --}}
 {{-- <img class="image2" src="http://103.76.175.175:81/epajak/con_menuutama/gambar/00259"> --}}
@@ -148,7 +149,7 @@ div.absolute {
         <td align="center"><b>{{Number_format($skr_cetak[0]->JumlahPajak)}}</b></td>
       </tr>
       <tr>
-        <td colspan="3"><font size="2">Dengan Huruf :  {{Terbilang::make($skr_cetak[0]->JumlahPajak, ' rupiah ')}}</font></td>
+        <td colspan="3"><font size="2">Dengan Huruf :  {{strtoupper(Terbilang::make($skr_cetak[0]->JumlahPajak). ' RUPIAH')}}</font></td>
 
       </tr>
 
@@ -172,16 +173,18 @@ div.absolute {
         </tr>
         <tr>
           <td></td>
-          <td align="center">a.n Kepala Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah</td>
+          {{--<td align="center">a.n Kepala Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah</td>--}}
+        <td align="center">a.n Kepala {{$header['opd']}}</td>
         </tr>
         <tr>
           <td></td>
-          <td align="center">Kepala Bidang Pendataan dan Penetapan Pajak</td>
+          {{--<td align="center">Kepala Bidang Pendataan dan Penetapan Pajak</td>--}}
+          <td align="center">{{$header['kepalaBidang']}}</td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td></td>
           <td align="center">dan Retribusi Daerah</td>
-        </tr>
+        </tr> -->
         <tr>
           <td><br></td>
           <td></td>
@@ -192,11 +195,12 @@ div.absolute {
         </tr>
         <tr>
           <td align="center"><u><b></b></u></td>
-          <td align="center"><u><b>NAMA KEPALA</b></u></td>
+    {{--<td align="center"><u><b>NAMA KEPALA</b></u></td>--}}
+    <td align="center"><u><b>{{$header['namaKepala']}}</b></u></td>
         </tr>
         <tr>
           <td align="center"></td>
-          <td align="center">NIP. ..............</td>
+        <td align="center">NIP. {{$header['nip']}}</td>
         </tr>
     </tbody>
 </table>

@@ -282,9 +282,10 @@ class RetribusiController extends Controller
         return Redirect::back()->with('success', " Berhasil Tersimpan");
 }
 
+    /*{{{ TODO tidak dipakai
     public function cetak (){
         return view ('report.skr_cetak');
-    }
+    } }}}*/
 
     public function skr_cetak($Nomor_SKPRD)
     {
@@ -312,9 +313,28 @@ class RetribusiController extends Controller
         b.Nomor_SKPRD = $Nomor_SKPRD";
         $skr_cetak = DB::connection('mysql')
             ->select(DB::raw($query));
+        if (Auth::user()->name == "DPMPTSP"){
+            $header = [
+                "opd" => "vDinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
+                "alamat" => "Jl. PB. Sudirman No. 1 Situbondo",
+                "kepalaBidang" => "vKepala Bidang Pelayanan Terpadu<br> U.b Kepala Seksi Penetapan dan Penerbitan",
+                "namaKepala" => "RAWAT TRIMURTI",
+                "nip" => "19790901 200501 2 012",
+            ];
+        }else{
+            $header = [
+                "opd" => "vBadan Pendapatan Pengelolaan Keuangan dan Aset Daerah",
+                "alamat" => "Jl. PB. Sudirman No. 1 Situbondo",
+                "kepalaBidang" => "vKepala Bidang Pendataan dan Penetapan Pajak dan Retribusi Daerah",
+                "namaKepala" => "H. LUTFI ZAKARIA",
+                "nip" => "19640227 199211 1 0001",
+            ];
+        }
 
         // dd ($skr_cetak[0]->masa1);
-        return view('report.skr_cetak', compact('skr_cetak'));
+        /* dd(Auth::user()->name); */
+        /* dd($header['opd']); */
+        return view('report.skr_cetak', compact('skr_cetak', 'header'));
     }
     public function sptrd_cetak($NoID)
     {
