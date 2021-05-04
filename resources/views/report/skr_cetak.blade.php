@@ -77,10 +77,10 @@ div.absolute {
 
 <div class="parent">
     <img class="image1" src="{{asset('public/template/assets/logo.jpg')}}"" width="12%" height="80" align="left">
-<h4 align="center"><b>PEMERINTAH KABUPATEN SITUBONDO</b></h4>
-<h5 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h5>
-<h5 align="center"><b>Jl. Pb Sudirman No.1 Situbondo</b></h5>
-<h5 align="center"><b>Telp.(0338)671916</b></h5>
+<h5 align="center"><b>PEMERINTAH KABUPATEN SITUBONDO</b></h5>
+<h6 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h6>
+<h6 align="center"><b>Jl. Pb Sudirman No.1 Situbondo</b></h6>
+<h6 align="center"><b>Telp.(0338)671916</b></h6>
 {{-- <img class="image1" src="http://103.76.175.175:81/epajak/assets/logofull.jpg" width="100%" height="121" align="center"> --}}
 {{-- <img class="image2" src="http://103.76.175.175:81/epajak/con_menuutama/gambar/00259"> --}}
 </div>

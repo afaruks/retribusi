@@ -189,9 +189,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Tanggal Terbit</label>
-                         
-                          <input type="text" name="TanggalTerbit" id="TanggalTerbit" class="form-control"  placeholder="Tahun-Bulan-Hari">
-                          
+                          <input type="text" name="TanggalTerbit" id="TanggalTerbit" class="form-control datepicker"  placeholder="Tahun-Bulan-Hari">     
                         </div>
                       </div>
                       <div class="col-sm-6">

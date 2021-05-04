@@ -57,7 +57,7 @@
                     {{-- <td>{{$ker->Nomor_SKPRD}}</td> --}}
                     <td>{{$ker->Bulan}}</td>
                     <td>{{$ker->Tahun}}</td>
-                    <td>{{$ker->Nomor_SPTPD}}</td>
+                    <td>{{str_pad($ker->Nomor_SPTPD,5,'0',STR_PAD_LEFT)}}</td>
                     <td>{{$ker->KeteranganPajak}}</td>
                     <td>{{$ker->JumlahPajak}}</td>
                     <td>
@@ -132,13 +132,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Masa 1</label>
-                          <input type="text" name="masa1" id="masa1" class="form-control" placeholder="Masa 1" >
+                          <input type="text" name="masa1" id="masa1" class="form-control datepicker" placeholder="Masa 1" >
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>Masa 2</label>
-                          <input type="text" name="masa2" id="masa2" class="form-control" placeholder="Masa 2">
+                          <input type="text" name="masa2" id="masa2" class="form-control datepicker" placeholder="Masa 2">
                         </div>
                       </div>
                     </div>
@@ -213,6 +213,16 @@
 				});
 			}
 		});
+    $(document).ready(function(){
+          $('#masa1').datepicker({
+            autoclose: true,
+            format:'yyyy-mm-dd'
+          });
+          $('#masa2').datepicker({
+            autoclose: true,
+            format:'yyyy-mm-dd'
+          });     
+      });
 
 </script>
 @endsection
