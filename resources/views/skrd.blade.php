@@ -47,24 +47,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach ($skrd as $ker)
-                  <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>
-                        {{-- str_pad(,5,STR_PAD_LEFT) --}}
-                        {{str_pad($ker->Nomor_SKPRD,5,'0',STR_PAD_LEFT)}}
-                    </td>
-                    {{-- <td>{{$ker->Nomor_SKPRD}}</td> --}}
-                    <td>{{$ker->Bulan}}</td>
-                    <td>{{$ker->Tahun}}</td>
-                    <td>{{$ker->Nomor_SPTPD}}</td>
-                    <td>{{$ker->KeteranganPajak}}</td>
-                    <td>{{$ker->JumlahPajak}}</td>
-                    <td>
-                      <a href="{{URL::to('skr_cetak/'.$ker->Nomor_SKPRD)}}" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-primary" name=""> <i class="fa fa-print"></i></button></a>
-                    </td>
-                  </tr>
-                  @endforeach
+                @foreach ($skrd as $ker)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>
+                            {{-- str_pad(,5,STR_PAD_LEFT) --}}
+                            {{str_pad($ker->Nomor_SKPRD,5,'0',STR_PAD_LEFT)}}
+                        </td>
+                        {{-- <td>{{$ker->Nomor_SKPRD}}</td> --}}
+                        <td>{{$ker->Bulan}}</td>
+                        <td>{{$ker->Tahun}}</td>
+                        {{--<td>{{$ker->Nomor_SPTPD}}</td>--}}
+                        <td>{{str_pad($ker->Nomor_SPTPD,5,'0',STR_PAD_LEFT)}}</td>
+                        <td>{{$ker->KeteranganPajak}}</td>
+                        <td>{{$ker->JumlahPajak}}</td>
+                        <td>
+                            <a href="{{URL::to('skr_cetak/'.$ker->Nomor_SKPRD)}}" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-primary" name=""> <i class="fa fa-print"></i></button></a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
               </table>
               {{-- <a href="{{url('/export')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
@@ -189,12 +190,12 @@
         //             {extend:'print',title: 'Data_SPTPRD'},
         // ]
 
-        /*"columns" : [
+        "columns" : [
             {
                 "data": 'No'
             },
             {
-                "data": 'No. SKR'
+                "data": 'Nomor_SKPRD'
             },
             {
                 "data": 'Bulan'
@@ -203,18 +204,20 @@
                 "data": 'Tahun'
             },
             {
-                "data": 'No. SPTRD'
+                "data": 'Nomor_SPTPD'
             },
             {
                 "data": 'Uraian'
             },
             {
-                "data": 'Jumlah'
+                "data": 'Jumlah',
+                // "render": $.fn.dataTable.render.number('.', ',', 0, 'Rp. ')
+                "render": $.fn.dataTable.render.number('.', ',', 0, '')
             },
             {
                 "data": 'Aksi'
             },
-        ]*/
+        ]
     });
   });
 

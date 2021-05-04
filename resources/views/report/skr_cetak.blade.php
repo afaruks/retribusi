@@ -157,7 +157,7 @@ div.absolute {
   </table>
   <h5><b><u>PERHATIAN :</u></b></h5>
   <ol>
-    <li><font size="2">Apabila SKP-Daerah ini tidak atau kurang dibayar lewat waktu paling lama 30 hari setelah SKP-Daerah diterima atau (tanggal jatuh tempo) dikenakan sanksi administrasi berupa bunga sebesar 2% per bulan.</font></li>
+    <li><font size="2">Apabila SKR-Daerah ini tidak atau kurang dibayar lewat waktu paling lama 30 hari setelah SKP-Daerah diterbitkan atau (tanggal jatuh tempo) dikenakan sanksi administrasi berupa bunga sebesar 2% per bulan.</font></li>
   </ol>
 <table border="0" width="100%">
     <tbody>
@@ -278,6 +278,6 @@ div.absolute {
 </body>
 
 </div>
-<button type="button" class="btn btn-primary" onclick="printDiv('printableArea')" >Cetak SKP</button>
+<button type="button" class="btn btn-primary" onclick="printDiv('printableArea')" >Cetak SKR</button>
 <br>
 </html>

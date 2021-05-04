@@ -36,6 +36,7 @@ class RetribusiController extends Controller
 
     public function skrd_view()
     {
+        /* TODO snub on Tue 04 May 2021 09:41:53 : ini punya DPMPTSP */
         $query = "SELECT
         a.Nomor_SKPRD,
         a.Bulan,
@@ -48,10 +49,12 @@ class RetribusiController extends Controller
         LEFT JOIN sptpd b ON a.Nomor_SPTPD = b.NoID
     WHERE
         b.JenisPajak IN ( '4.1.2.01', '4.1.2.02', '4.1.2.03' )";
+
         $skrd = DB::connection('mysql')
             ->select(DB::raw($query));
 
         // return ($kel);
+        /* dd($skrd); */
         return view('skrd', compact('skrd'));
     }
     public function Csptrd(request $request)
