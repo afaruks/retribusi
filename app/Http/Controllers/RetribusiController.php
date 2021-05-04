@@ -317,7 +317,8 @@ class RetribusiController extends Controller
             $header = [
                 "opd" => "vDinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
                 "alamat" => "Jl. PB. Sudirman No. 1 Situbondo",
-                "kepalaBidang" => "vKepala Bidang Pelayanan Terpadu<br> U.b Kepala Seksi Penetapan dan Penerbitan",
+                /* "kepalaBidang" => nl2br("vKepala Bidang Pelayanan Terpadu\nU.b Kepala Seksi Penetapan dan Penerbitan"), */
+                "kepalaBidang" => "vKepala Bidang Pelayanan Terpadu<br />U.b Kepala Seksi Penetapan dan Penerbitan",
                 "namaKepala" => "RAWAT TRIMURTI",
                 "nip" => "19790901 200501 2 012",
             ];

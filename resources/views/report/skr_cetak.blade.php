@@ -157,7 +157,6 @@ div.absolute {
   </table>
   <h5><b><u>PERHATIAN :</u></b></h5>
   <ol>
-    <!--<li><font size="2">Harap penyetoran dilakukan pada Bank Jatim Rekening Bendahara Penerimaan BPPKAD No.Rek 0291011896</font></li>-->
     <li><font size="2">Apabila SKP-Daerah ini tidak atau kurang dibayar lewat waktu paling lama 30 hari setelah SKP-Daerah diterima atau (tanggal jatuh tempo) dikenakan sanksi administrasi berupa bunga sebesar 2% per bulan.</font></li>
   </ol>
 <table border="0" width="100%">
@@ -168,8 +167,7 @@ div.absolute {
       </tr>
         <tr>
           <td align="center"></td>
-          <td align="center">Situbondo, <?php $tgl=date('d-m-Y');echo $tgl;?> <!-- Reza --> <!-- -->
-          <!--<td align="center">Sitbondo, 11-01-2018</td>--> <!-- Reza -->
+          <td align="center">Situbondo, <?php $tgl=date('d-m-Y');echo $tgl;?> <!-- Reza -->
         </tr>
         <tr>
           <td></td>
@@ -179,7 +177,7 @@ div.absolute {
         <tr>
           <td></td>
           {{--<td align="center">Kepala Bidang Pendataan dan Penetapan Pajak</td>--}}
-          <td align="center">{{$header['kepalaBidang']}}</td>
+          <td align="center">{!! nl2br($header['kepalaBidang']) !!}</td>
         </tr>
         <!-- <tr>
           <td></td>
@@ -215,7 +213,6 @@ div.absolute {
         <tr>
           <td><b><font size="2"><u>TANDA TERIMA</u></b></font></td>
           <td align="center"><font size="2">Situbondo, <?php $tgl=date('d-m-Y');echo $tgl;?></font></td> <!-- Reza -->
-          <!--<td align="center"><font size="2">Situbondo, 11-01-2018</font></td>--> <!-- Reza -->
         </tr>
         <tr>
           <td>
