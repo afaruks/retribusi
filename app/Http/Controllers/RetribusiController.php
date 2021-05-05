@@ -319,7 +319,7 @@ class RetribusiController extends Controller
         if (Auth::user()->name == "DPMPTSP"){
             $header = [
                 "opd" => "vDinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
-                "alamat" => "Jl. PB. Sudirman No. 1 Situbondo",
+                "alamat" => "Jl. PB. Sudirman No. 20<br /> Telp. 0338 672155 Situbondo",
                 /* "kepalaBidang" => nl2br("vKepala Bidang Pelayanan Terpadu\nU.b Kepala Seksi Penetapan dan Penerbitan"), */
                 "kepalaBidang" => "vKepala Bidang Pelayanan Terpadu<br />U.b Kepala Seksi Penetapan dan Penerbitan",
                 "namaKepala" => "RAWAT TRIMURTI",
@@ -328,7 +328,7 @@ class RetribusiController extends Controller
         }else{
             $header = [
                 "opd" => "vBadan Pendapatan Pengelolaan Keuangan dan Aset Daerah",
-                "alamat" => "Jl. PB. Sudirman No. 1 Situbondo",
+                "alamat" => "Jl. PB. Sudirman No. 1<br /> Telp. 0338 677161<br /> Situbondo",
                 "kepalaBidang" => "vKepala Bidang Pendataan dan Penetapan Pajak dan Retribusi Daerah",
                 "namaKepala" => "H. LUTFI ZAKARIA",
                 "nip" => "19640227 199211 1 0001",
