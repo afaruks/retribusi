@@ -75,10 +75,11 @@ div.absolute {
 
 <body>
 
-{{-- TODO snub 050721 10:24 layout masih berantakan --}}
+{{-- TODO snub 050721 10:24 layout masih berantakan ✓ --}}
 <div class="parent">
     {{-- <img class="image1" src="{{asset('public/template/assets/logo.jpg')}}"" width="12%" height="80" align="left">--}}
-    <img class="image1" src="{{asset('public/template/assets/Logo Kabupaten Situbondo alpha.png')}}"" width="23%" height="53%" align="left">
+    {{-- <img class="image1" src="{{asset('public/template/assets/Logo Kabupaten Situbondo alpha.png')}}"" width="23%" height="53%" align="left"> --}}
+    <img class="image1" src="{{asset('public/template/assets/Logo Kabupaten Situbondo alpha.png')}}"" width="150" height="150" align="left">
 <h5 align="center"><b>PEMERINTAH KABUPATEN SITUBONDO</b></h5>
 {{-- <h6 align="center"><b>Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</b></h6> --}}
 <h6 align="center"><b>{{$header['opd']}}</b></h6>
